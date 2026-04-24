@@ -1,0 +1,52 @@
+{
+  "manifest_version": 3,
+  "name": "Clipchamp + HeyGen 下载改名助手",
+  "version": "1.0.8",
+  "description": "Clipchamp / vidnoz / elevenlabs 导出前改名，监控 Hedra 上传/下载并改名。 Hedra界面略有调整，记录内置语音信息。修改 FB reels静音、弹窗",
+  "icons": {
+    "16":  "heygen-286x286.png",
+    "48":  "heygen-286x286.png",
+    "128": "heygen-286x286.png"
+  },
+  "permissions": [
+    "downloads",
+    "storage"
+  ],
+  "host_permissions": [
+    "*://www.hedra.com/app/*",
+    "*://app.clipchamp.com/*",
+    "*://*.vidnoz.com/text-to-speech/*",
+    "*://elevenlabs.io/app/speech-synthesis/text-to-speech/*",
+    "https://labs.google/fx/tools/whisk/*",
+    "*://app.heygen.com/*",
+    "*://resource2.heygen.ai/*"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://www.hedra.com/app/*",
+        "*://app.clipchamp.com/*",
+        "*://*.vidnoz.com/text-to-speech/*",
+        "*://elevenlabs.io/app/speech-synthesis/text-to-speech/*",
+        "https://www.facebook.com/*",
+        "https://www.instagram.com/reel/*",
+        "https://www.instagram.com/reels/*",
+        "https://labs.google/fx/zh/tools/whisk/*",
+        "https://labs.google/fx/zh/tools/image-fx/*",
+        "*://app.heygen.com/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["injected.js", "image_downloader.js"],
+      "matches": ["https://www.hedra.com/*", "https://labs.google/*", "https://app.heygen.com/*"]
+    }
+  ]
+}
