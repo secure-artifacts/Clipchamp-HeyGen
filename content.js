@@ -20,8 +20,8 @@ injected.js 才能跑在页面环境，劫持 info
 */
   // 和 manifest.json 的 web_accessible_resources.matches 保持一致
 const allowedPatterns = [
-  /^https:\/\/www.hedra\.com\//,
-  /^https:\/\/app.heygen\.com\//
+  /^https:\/\/www\.hedra\.com\//,
+  /^https:\/\/app\.heygen\.com\//
 ];
 
 /******************** 全局 部分 ********************/  
